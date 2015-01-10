@@ -1,0 +1,32 @@
+{
+  "name": "lintel-contrib-navs",
+  "version": "0.1.0",
+  "description": "Navigation tools for lintel.",
+  "homepage": "https://github.com/lintelio/lintel-contrib-navs",
+  "repository": "https://github.com/lintelio/lintel-contrib-navs.git",
+  "keywords": [
+    "lintelmodule",
+    "lintel"
+  ],
+  "main": [
+    "sass/navs.sass",
+    "dist/navs.min.css",
+    "dist/navs.min.js"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "lintel": "~0.1.5"
+  },
+  "devDependencies": {},
+  "ignore": [
+    "/.*",
+    "sass/lintel-core-loader.scss"
+  ],
+  "authors": [
+    {
+      "name": "Marius Craciunoiu",
+      "email": "",
+      "url": "mariusc23.com"
+    }
+  ]
+}
