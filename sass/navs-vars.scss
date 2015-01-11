@@ -11,6 +11,8 @@ $nav-margin-x:              4px;
 $nav-include-y:             true;
 
 // Tabs
+$nav-include-tabs:          true;
+
 $nav-tabs-margin-y:         4px;
 $nav-tabs-margin-x:         $nav-margin-x;
 $nav-tabs-padding-y:        $nav-padding-y;
@@ -31,6 +33,8 @@ $nav-tabs-hover-border:     transparent;
 $nav-tabs-hover-text:       $text-link;
 
 // Pills
+$nav-include-pills:         true;
+
 $nav-pills-margin-y:        $nav-margin-y;
 $nav-pills-margin-x:        $nav-margin-x;
 $nav-pills-padding-y:       $nav-padding-y;
@@ -50,6 +54,8 @@ $nav-pills-hover-border:    $border-base;
 $nav-pills-hover-text:      $nav-pills-active-bg;
 
 // Flat
+$nav-include-flat:          true;
+
 $nav-flat-margin-y:         $nav-margin-y;
 $nav-flat-margin-x:         $cushion-x-lg;
 $nav-flat-padding-y:        $cushion-y-sm;

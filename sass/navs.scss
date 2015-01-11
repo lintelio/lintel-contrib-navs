@@ -25,90 +25,41 @@
 }
 
 // Tabs
-.nav-tabs {
-  border-bottom: 1px solid $nav-tabs-border-list;
-
-  > li {
-    margin-bottom: -1px;
-    margin-right: $nav-tabs-margin-x;
-
-    > a {
-      @if $nav-tabs-bg != null {
-        background: $nav-tabs-bg;
-      }
-      border: 1px solid $nav-tabs-border;
-      border-bottom-color: $nav-tabs-border-list;
-      @if $nav-tabs-border-radius > 0 {
-        border-top-left-radius: $nav-tabs-border-radius;
-        border-top-right-radius: $nav-tabs-border-radius;
-      }
-      color: $nav-tabs-text;
-      display: block;
-      position: relative;
-      @if $nav-tabs-padding-y != $nav-padding-y or $nav-tabs-padding-x != $nav-padding-x {
-        padding: $nav-tabs-padding-y $nav-tabs-padding-x;
-      }
-
-      &:hover,
-      &:focus {
-        @if $nav-tabs-hover-bg != null {
-          background: $nav-tabs-hover-bg;
-        }
-        @if $nav-tabs-hover-border != null {
-          border-color: $nav-tabs-hover-border $nav-tabs-hover-border $nav-tabs-border-list;
-        }
-        @if $nav-tabs-hover-text != null {
-          color: $nav-tabs-hover-text;
-        }
-      }
-    }
-  }
-
-  > .active > a,
-  > .active > a:hover {
-    @if $nav-tabs-active-bg != null {
-      background: $nav-tabs-active-bg;
-    }
-    @if $nav-pills-active-border != null {
-      border-color: $nav-tabs-active-border $nav-tabs-active-border transparent;
-    }
-    @if $nav-pills-active-text != null {
-      color: $nav-tabs-active-text;
-    }
-  }
-}
-
-@if $nav-include-y == true {
-  .nav-tabs-y {
-    border-bottom: 0;
+@if $nav-include-tabs == true {
+  .nav-tabs {
+    border-bottom: 1px solid $nav-tabs-border-list;
 
     > li {
-      float: none;
-      margin-bottom: $nav-tabs-margin-y;
+      margin-bottom: -1px;
+      margin-right: $nav-tabs-margin-x;
 
       > a {
-        border-bottom-color: $nav-tabs-border;
-      }
-    }
-  }
-
-  .nav-tabs-y-left {
-    border-left: 1px solid $nav-tabs-border-list;
-
-    > li {
-      margin-left: -1px;
-
-      > a {
-        border-left-color: $nav-tabs-border-list;
+        @if $nav-tabs-bg != null {
+          background: $nav-tabs-bg;
+        }
+        border: 1px solid $nav-tabs-border;
+        border-bottom-color: $nav-tabs-border-list;
         @if $nav-tabs-border-radius > 0 {
-          border-top-left-radius: 0;
-          border-bottom-right-radius: $nav-tabs-border-radius;
+          border-top-left-radius: $nav-tabs-border-radius;
+          border-top-right-radius: $nav-tabs-border-radius;
+        }
+        color: $nav-tabs-text;
+        display: block;
+        position: relative;
+        @if $nav-tabs-padding-y != $nav-padding-y or $nav-tabs-padding-x != $nav-padding-x {
+          padding: $nav-tabs-padding-y $nav-tabs-padding-x;
         }
 
         &:hover,
         &:focus {
+          @if $nav-tabs-hover-bg != null {
+            background: $nav-tabs-hover-bg;
+          }
           @if $nav-tabs-hover-border != null {
-            border-color: $nav-tabs-hover-border $nav-tabs-hover-border $nav-tabs-hover-border $nav-tabs-border-list;
+            border-color: $nav-tabs-hover-border $nav-tabs-hover-border $nav-tabs-border-list;
+          }
+          @if $nav-tabs-hover-text != null {
+            color: $nav-tabs-hover-text;
           }
         }
       }
@@ -116,162 +67,217 @@
 
     > .active > a,
     > .active > a:hover {
+      @if $nav-tabs-active-bg != null {
+        background: $nav-tabs-active-bg;
+      }
       @if $nav-pills-active-border != null {
-        border-color: $nav-tabs-active-border $nav-tabs-active-border $nav-tabs-active-border transparent;
+        border-color: $nav-tabs-active-border $nav-tabs-active-border transparent;
+      }
+      @if $nav-pills-active-text != null {
+        color: $nav-tabs-active-text;
       }
     }
   }
 
-  .nav-tabs-y-right {
-    border-right: 1px solid $nav-tabs-border-list;
+  @if $nav-include-y == true {
+    .nav-tabs-y {
+      border-bottom: 0;
 
-    > li {
-      margin-right: -1px;
+      > li {
+        float: none;
+        margin-bottom: $nav-tabs-margin-y;
 
-      > a {
-        border-right-color: $nav-tabs-border-list;
-        @if $nav-tabs-border-radius > 0 {
-          border-top-right-radius: 0;
-          border-bottom-left-radius: $nav-tabs-border-radius;
-        }
-
-        &:hover,
-        &:focus {
-          @if $nav-tabs-hover-border != null {
-            border-color: $nav-tabs-hover-border $nav-tabs-border-list $nav-tabs-hover-border $nav-tabs-hover-border;
-          }
+        > a {
+          border-bottom-color: $nav-tabs-border;
         }
       }
     }
 
-    > .active > a,
-    > .active > a:hover {
-      @if $nav-pills-active-border != null {
-        border-color: $nav-tabs-active-border transparent $nav-tabs-active-border $nav-tabs-active-border;
+    .nav-tabs-y-left {
+      border-left: 1px solid $nav-tabs-border-list;
+
+      > li {
+        margin-left: -1px;
+
+        > a {
+          border-left-color: $nav-tabs-border-list;
+          @if $nav-tabs-border-radius > 0 {
+            border-top-left-radius: 0;
+            border-bottom-right-radius: $nav-tabs-border-radius;
+          }
+
+          &:hover,
+          &:focus {
+            @if $nav-tabs-hover-border != null {
+              border-color: $nav-tabs-hover-border $nav-tabs-hover-border $nav-tabs-hover-border $nav-tabs-border-list;
+            }
+          }
+        }
+      }
+
+      > .active > a,
+      > .active > a:hover {
+        @if $nav-pills-active-border != null {
+          border-color: $nav-tabs-active-border $nav-tabs-active-border $nav-tabs-active-border transparent;
+        }
+      }
+    }
+
+    .nav-tabs-y-right {
+      border-right: 1px solid $nav-tabs-border-list;
+
+      > li {
+        margin-right: -1px;
+
+        > a {
+          border-right-color: $nav-tabs-border-list;
+          @if $nav-tabs-border-radius > 0 {
+            border-top-right-radius: 0;
+            border-bottom-left-radius: $nav-tabs-border-radius;
+          }
+
+          &:hover,
+          &:focus {
+            @if $nav-tabs-hover-border != null {
+              border-color: $nav-tabs-hover-border $nav-tabs-border-list $nav-tabs-hover-border $nav-tabs-hover-border;
+            }
+          }
+        }
+      }
+
+      > .active > a,
+      > .active > a:hover {
+        @if $nav-pills-active-border != null {
+          border-color: $nav-tabs-active-border transparent $nav-tabs-active-border $nav-tabs-active-border;
+        }
       }
     }
   }
 }
 
 // Pills
-.nav-pills {
-  > li {
-    margin-right: $nav-pills-margin-x;
-
-    > a {
-      @if $nav-pills-bg != null {
-        background: $nav-pills-bg;
-      }
-      border: 1px solid $nav-pills-border;
-      @if $nav-pills-border-radius > 0 {
-        border-radius: $nav-pills-border-radius;
-      }
-      color: $nav-pills-text;
-      @if $nav-pills-padding-y != $nav-padding-y or $nav-pills-padding-x != $nav-padding-x {
-        padding: $nav-pills-padding-y $nav-pills-padding-x;
-      }
-
-      &:hover,
-      &:focus {
-        @if $nav-pills-hover-bg != null {
-          background: $nav-pills-hover-bg;
-        }
-        @if $nav-pills-hover-border != null {
-          border-color: $nav-pills-hover-border;
-        }
-        @if $nav-pills-hover-text != null {
-          color: $nav-pills-hover-text;
-        }
-      }
-    }
-  }
-
-  > .active > a,
-  > .active > a:hover {
-    @if $nav-pills-active-bg != null {
-      background: $nav-pills-active-bg;
-    }
-    @if $nav-pills-active-border != null {
-      border-color: $nav-pills-active-border;
-    }
-    @if $nav-pills-active-text != null {
-      color: $nav-pills-active-text;
-    }
-  }
-}
-
-@if $nav-include-y == true {
-  .nav-pills-y {
+@if $nav-include-pills == true {
+  .nav-pills {
     > li {
-      float: none;
-      margin-bottom: $nav-pills-margin-y;
+      margin-right: $nav-pills-margin-x;
+
+      > a {
+        @if $nav-pills-bg != null {
+          background: $nav-pills-bg;
+        }
+        border: 1px solid $nav-pills-border;
+        @if $nav-pills-border-radius > 0 {
+          border-radius: $nav-pills-border-radius;
+        }
+        color: $nav-pills-text;
+        @if $nav-pills-padding-y != $nav-padding-y or $nav-pills-padding-x != $nav-padding-x {
+          padding: $nav-pills-padding-y $nav-pills-padding-x;
+        }
+
+        &:hover,
+        &:focus {
+          @if $nav-pills-hover-bg != null {
+            background: $nav-pills-hover-bg;
+          }
+          @if $nav-pills-hover-border != null {
+            border-color: $nav-pills-hover-border;
+          }
+          @if $nav-pills-hover-text != null {
+            color: $nav-pills-hover-text;
+          }
+        }
+      }
+    }
+
+    > .active > a,
+    > .active > a:hover {
+      @if $nav-pills-active-bg != null {
+        background: $nav-pills-active-bg;
+      }
+      @if $nav-pills-active-border != null {
+        border-color: $nav-pills-active-border;
+      }
+      @if $nav-pills-active-text != null {
+        color: $nav-pills-active-text;
+      }
+    }
+  }
+
+  @if $nav-include-y == true {
+    .nav-pills-y {
+      > li {
+        float: none;
+        margin-bottom: $nav-pills-margin-y;
+      }
     }
   }
 }
 
 // Flat
-.nav-flat {
-  border-bottom: $nav-flat-border-width solid $nav-flat-border;
-
-  > li {
-    margin-bottom: -$nav-flat-border-width;
-    margin-right: $nav-flat-margin-x;
-
-    > a {
-      color: $nav-flat-text;
-      border-bottom: $nav-flat-border-width solid $nav-flat-border;
-      @if $nav-flat-padding-y != $nav-padding-y or $nav-flat-padding-x != $nav-padding-x {
-        padding: $nav-flat-padding-y $nav-flat-padding-x;
-      }
-
-      &:hover,
-      &:focus {
-        @if $nav-flat-hover-bg != null {
-          background: $nav-flat-hover-bg;
-        }
-        @if $nav-flat-hover-border != null {
-          border-color: $nav-flat-hover-border;
-        }
-        @if $nav-flat-hover-text != null {
-          color: $nav-flat-hover-text;
-        }
-      }
-    }
-  }
-
-  > .active > a,
-  > .active > a:hover {
-    @if $nav-flat-active-bg != null {
-      background: $nav-flat-active-bg;
-    }
-    @if $nav-flat-active-border != null {
-      border-color: $nav-flat-active-border;
-    }
-    @if $nav-flat-active-text != null {
-      color: $nav-flat-active-text;
-    }
-  }
-}
-
-@if $nav-include-y == true {
-  .nav-flat-y {
-    @extend .nav-list-y;
-    border-bottom: 0;
-    border-left: $nav-flat-border-width solid $nav-flat-border;
+@if $nav-include-flat == true {
+  .nav-flat {
+    border-bottom: $nav-flat-border-width solid $nav-flat-border;
 
     > li {
-      float: none;
-      margin-bottom: $nav-flat-margin-y;
-      margin-left: -$nav-flat-border-width;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
+      margin-bottom: -$nav-flat-border-width;
+      margin-right: $nav-flat-margin-x;
 
       > a {
-        border-bottom: 0;
-        border-left: $nav-flat-border-width solid $nav-flat-border;
-        padding-left: $nav-flat-y-padding-x;
+        color: $nav-flat-text;
+        border-bottom: $nav-flat-border-width solid $nav-flat-border;
+        @if $nav-flat-padding-y != $nav-padding-y or $nav-flat-padding-x != $nav-padding-x {
+          padding: $nav-flat-padding-y $nav-flat-padding-x;
+        }
+
+        &:hover,
+        &:focus {
+          @if $nav-flat-hover-bg != null {
+            background: $nav-flat-hover-bg;
+          }
+          @if $nav-flat-hover-border != null {
+            border-color: $nav-flat-hover-border;
+          }
+          @if $nav-flat-hover-text != null {
+            color: $nav-flat-hover-text;
+          }
+        }
+      }
+    }
+
+    > .active > a,
+    > .active > a:hover {
+      @if $nav-flat-active-bg != null {
+        background: $nav-flat-active-bg;
+      }
+      @if $nav-flat-active-border != null {
+        border-color: $nav-flat-active-border;
+      }
+      @if $nav-flat-active-text != null {
+        color: $nav-flat-active-text;
+      }
+    }
+  }
+
+  @if $nav-include-y == true {
+    .nav-flat-y {
+      @extend .nav-list-y;
+      border-bottom: 0;
+      border-left: $nav-flat-border-width solid $nav-flat-border;
+
+      > li {
+        float: none;
+        margin-bottom: $nav-flat-margin-y;
+        margin-left: -$nav-flat-border-width;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        > a {
+          border-bottom: 0;
+          border-left: $nav-flat-border-width solid $nav-flat-border;
+          padding-left: $nav-flat-y-padding-x;
+        }
       }
     }
   }
