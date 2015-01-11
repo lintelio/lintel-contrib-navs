@@ -34,53 +34,89 @@ You can use [wiredep](https://github.com/taptapship/wiredep) or [grunt-wiredep](
 ## Variables
 Check the vars file in the `sass` folder to see the full list of variables you can customize.
 
-#### $bacon-bg
-Default value: `#4b77be`  
+#### $nav-padding-y
+Default value: `$cushion-y-md`  
 
-Change the bacon background.
+Change the default padding-top and padding-bottom.
 
-#### $bacon-border
-Default value: `#f00`  
+#### $nav-padding-x
+Default value: `$cushion-x-md`  
 
-Change the bacon border color.
+Change the default padding-left and padding-right.
 
-#### $bacon-text
-Default value: `#fff`  
+#### $nav-margin-y
+Default value: `$cushion-y-md`  
 
-Change the bacon text color.
+Change the vertical space between nav items.
+
+#### $nav-padding-x
+Default value: `4px`  
+
+Change the horizontal space between items.
 
 
-## Mixins
-Check the mixins file in the `sass` folder to see how you can extend this module.
+## Tab Variables
+Tabs prefixed with `$nav-tabs-*` are tab specific.
 
-#### make-bacon($bg, $border, $text)
-Default $bg: `$bacon-bg`  
-Default $border: `$bacon-border`  
-Default $text: `$bacon-text`  
+#### $nav-tabs-bg
+Tab background.
 
-Sets the background, border, and text color of an element.
+#### $nav-tabs-border
+Tab border.
 
-```scss
-.bacon-primary {
-  @include make-bacon(#fff, #f00, #000);
-}
-```
+#### $nav-tabs-border-list
+Tab-list border.
+
+#### $nav-tabs-border-radius
+Tab border-radius.
+
+#### $nav-tabs-text
+Tab text color.
+
+Use `$nav-tabs-active-bg`, `$nav-tabs-active-border`, and `$nav-tabs-active-text` to customize active colors.
+
+Use `$nav-tabs-hover-bg`, `$nav-tabs-hover-border`, and `$nav-tabs-hover-text` to customize hover colors.
+
+
+## Pills and Flat Variables
+Same as tabs except `$nav-pills-*` and `$nav-flat-*`.
 
 
 ## Examples
 
-#### Bacon
+#### Tabs
 ```html
-<div class="bacon">
-  Hello world!
-</div>
+<ul class="nav-list nav-tabs" role="tablist">
+  <li class="active" role="presentation">
+    <a href="#" role="tab">Home</a>
+  </li>
+  <li role="presentation">
+    <a href="#" role="tab">Profile</a>
+  </li>
+  <li role="presentation">
+    <a href="#" role="tab">Activity</a>
+  </li>
+</ul>
 ```
 
-#### Primary Bacon
+#### Vertical Tabs Left
 ```html
-<div class="bacon bacon-primary">
-  Hello world!
-</div>
+<ul class="nav-list nav-tabs-y nav-tabs-y-left" role="tablist">...</div>
+```
+
+#### Vertical Tabs Right
+```html
+<ul class="nav-list nav-tabs-y nav-tabs-y-right" role="tablist">...</div>
+```
+
+#### Pills
+```html
+<ul class="nav-list nav-pills" role="tablist">...</div>
+```
+
+#### Flat
+```html
+<ul class="nav-list nav-flat" role="tablist">...</div>
 ```
 
 

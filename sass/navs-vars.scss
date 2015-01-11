@@ -2,44 +2,71 @@
 // https://github.com/lintelio/lintel/blob/master/CONTRIBUTING.md
 
 // Global
-$bacon-padding-y:         $cushion-y-md !default;
-$bacon-padding-x:         $cushion-x-md !default;
+$nav-padding-y:             $cushion-y-md !default;
+$nav-padding-x:             $cushion-x-md !default;
 
-$bacon-margin-y:          $cushion-y-lg !default;
+$nav-margin-y:              $cushion-y-md;
+$nav-margin-x:              4px;
 
-$bacon-border-radius:     $border-radius-base !default;
+$nav-include-y:             true;
 
-// Base
-$bacon-base-bg:           $bg-light !default;
-$bacon-base-border:       $border-base !default;
-$bacon-base-text:         $text-base !default;
+// Tabs
+$nav-tabs-margin-y:         4px;
+$nav-tabs-margin-x:         $nav-margin-x;
+$nav-tabs-padding-y:        $nav-padding-y;
+$nav-tabs-padding-x:        $nav-padding-x;
 
-// Primary
-$bacon-primary-bg:        $state-primary-bg !default;
-$bacon-primary-border:    $state-primary-border !default;
-$bacon-primary-text:      $state-primary-text !default;
+$nav-tabs-bg:               transparent;
+$nav-tabs-border:           transparent;
+$nav-tabs-border-list:      $border-base;
+$nav-tabs-border-radius:    $border-radius-base;
+$nav-tabs-text:             $text-muted;
 
-// Secondary
-$bacon-secondary-bg:      $state-secondary-bg !default;
-$bacon-secondary-border:  $state-secondary-border !default;
-$bacon-secondary-text:    $state-secondary-text !default;
+$nav-tabs-active-bg:        #fff;
+$nav-tabs-active-border:    $nav-tabs-border-list;
+$nav-tabs-active-text:      $text-link;
 
-// Error
-$bacon-error-bg:          $state-error-bg !default;
-$bacon-error-border:      $state-error-border !default;
-$bacon-error-text:        $state-error-text !default;
+$nav-tabs-hover-bg:         null;
+$nav-tabs-hover-border:     transparent;
+$nav-tabs-hover-text:       $text-link;
 
-// Warning
-$bacon-warning-bg:        $state-warning-bg !default;
-$bacon-warning-border:    $state-warning-border !default;
-$bacon-warning-text:      $state-warning-text !default;
+// Pills
+$nav-pills-margin-y:        $nav-margin-y;
+$nav-pills-margin-x:        $nav-margin-x;
+$nav-pills-padding-y:       $nav-padding-y;
+$nav-pills-padding-x:       $nav-padding-x;
 
-// Success
-$bacon-success-bg:        $state-success-bg !default;
-$bacon-success-border:    $state-success-border !default;
-$bacon-success-text:      $state-success-text !default;
+$nav-pills-bg:              null;
+$nav-pills-border:          transparent;
+$nav-pills-border-radius:   $border-radius-base;
+$nav-pills-text:            $text-muted;
 
-// Info
-$bacon-info-bg:           $state-info-bg !default;
-$bacon-info-border:       $state-info-border !default;
-$bacon-info-text:         $state-info-text !default;
+$nav-pills-active-bg:       $state-primary;
+$nav-pills-active-border:   $state-primary;
+$nav-pills-active-text:     #fff;
+
+$nav-pills-hover-bg:        null;
+$nav-pills-hover-border:    $border-base;
+$nav-pills-hover-text:      $nav-pills-active-bg;
+
+// Flat
+$nav-flat-margin-y:         $nav-margin-y;
+$nav-flat-margin-x:         $cushion-x-lg;
+$nav-flat-padding-y:        $cushion-y-sm;
+$nav-flat-padding-x:        0;
+
+$nav-flat-y-padding-x:      $cushion-x-sm;
+
+$nav-flat-bg:               null;
+$nav-flat-border:           $border-base;
+$nav-flat-border-width:     3px;
+$nav-flat-text:             $text-muted;
+
+$nav-flat-active-bg:        null;
+$nav-flat-active-border:    $state-primary;
+$nav-flat-active-text:      $text-link;
+
+$nav-flat-hover-bg:         null;
+$nav-flat-hover-border:     $border-darkest;
+$nav-flat-hover-text:       $text-base;
+
