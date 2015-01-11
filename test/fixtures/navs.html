@@ -3,53 +3,43 @@
   <head>
     <link rel="stylesheet" href="../../bower_components/lintel/dist/lintel.css">
     <link rel="stylesheet" href="../../dist/navs.css">
+    <script src="../../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../../dist/navs.debug.js"></script>
   </head>
   <body class="pad">
 
-    <ul class="nav-list" role="tablist">
+    <ul class="nav-list nav-tabs">
       <li class="active" role="presentation">
-        <a href="#home" role="tab">Home</a>
+        <a href="#home" role="tab" aria-controls="#home" aria-expanded="true">Debug</a>
+      </li>
+      <li>
+        <a href="#profile" aria-controls="#sup">Broken</a>
       </li>
       <li role="presentation">
-        <a href="#profile" role="tab">Profile</a>
-      </li>
-      <li role="presentation">
-        <a href="#activity" role="tab">Activity</a>
+        <a href="#noid" role="tab" aria-controls="#noid" aria-expanded="false">Tabs</a>
       </li>
     </ul>
-
-    <div class="tab-panel active" role="tabpanel">
-      You mean while I'm sleeping in it? Um, is this the boring, peaceful kind of taking to the streets? No! I want to live! There are still too many things I don't own! Or a guy who burns down a bar for the insurance money!
-    </div>
-    <div class="tab-panel" role="tabpanel">
-      Shinier than yours, meatbag. And from now on you're all named Bender Jr. Incidentally, you have a dime up your nose. I decline the title of Iron Cook and accept the lesser title of Zinc Saucier, which I just made up. Uhh… also, comes with double prize money. Humans dating robots is sick.
-    </div>
-    <div class="tab-panel" role="tabpanel">
-      You people wonder why I'm still single? It's 'cause all the fine robot sisters are dating humans! I didn't ask for a completely reasonable excuse! I asked you to get busy! Do a flip! I could if you hadn't turned on the light and shut off my stereo.
-    </div>
-
-    <br><br>
 
     <!-- TABS -->
     <ul class="nav-list nav-tabs" role="tablist">
       <li class="active" role="presentation">
-        <a href="#" role="tab">Home</a>
+        <a href="#home" role="tab" aria-controls="#home" aria-expanded="true">Home</a>
       </li>
       <li role="presentation">
-        <a href="#" role="tab">Profile</a>
+        <a href="#profile" role="tab" aria-controls="#profile" aria-expanded="false">Profile</a>
       </li>
       <li role="presentation">
-        <a href="#" role="tab">Activity</a>
+        <a href="#activity" role="tab" aria-controls="#activity" aria-expanded="false">Activity</a>
       </li>
     </ul>
 
-    <div class="tab-panel active" role="tabpanel">
+    <div class="tab-panel active" id="home" role="tabpanel">
       You mean while I'm sleeping in it? Um, is this the boring, peaceful kind of taking to the streets? No! I want to live! There are still too many things I don't own! Or a guy who burns down a bar for the insurance money!
     </div>
-    <div class="tab-panel" role="tabpanel">
+    <div class="tab-panel" id="profile" role="tabpanel" style="display: none;">
       Shinier than yours, meatbag. And from now on you're all named Bender Jr. Incidentally, you have a dime up your nose. I decline the title of Iron Cook and accept the lesser title of Zinc Saucier, which I just made up. Uhh… also, comes with double prize money. Humans dating robots is sick.
     </div>
-    <div class="tab-panel" role="tabpanel">
+    <div class="tab-panel" id="activity" role="tabpanel" style="display: none;">
       You people wonder why I'm still single? It's 'cause all the fine robot sisters are dating humans! I didn't ask for a completely reasonable excuse! I asked you to get busy! Do a flip! I could if you hadn't turned on the light and shut off my stereo.
     </div>
 
@@ -58,23 +48,23 @@
     <!-- PILLS -->
     <ul class="nav-list nav-pills" role="tablist">
       <li class="active" role="presentation">
-        <a href="#" role="tab">Home</a>
+        <a href="#home2" role="tab" aria-controls="#home2" aria-expanded="true">Home</a>
       </li>
       <li role="presentation">
-        <a href="#" role="tab">Profile</a>
+        <a href="#profile2" role="tab" aria-controls="#profile2" aria-expanded="false">Profile</a>
       </li>
       <li role="presentation">
-        <a href="#" role="tab">Activity</a>
+        <a href="#activity2" role="tab" aria-controls="#activity2" aria-expanded="false">Activity</a>
       </li>
     </ul>
 
-    <div class="tab-panel active" role="tabpanel">
+    <div class="tab-panel active" id="home2" role="tabpanel">
       You mean while I'm sleeping in it? Um, is this the boring, peaceful kind of taking to the streets? No! I want to live! There are still too many things I don't own! Or a guy who burns down a bar for the insurance money!
     </div>
-    <div class="tab-panel" role="tabpanel">
+    <div class="tab-panel" id="profile2" role="tabpanel" style="display: none;">
       Shinier than yours, meatbag. And from now on you're all named Bender Jr. Incidentally, you have a dime up your nose. I decline the title of Iron Cook and accept the lesser title of Zinc Saucier, which I just made up. Uhh… also, comes with double prize money. Humans dating robots is sick.
     </div>
-    <div class="tab-panel" role="tabpanel">
+    <div class="tab-panel" id="activity2" role="tabpanel" style="display: none;">
       You people wonder why I'm still single? It's 'cause all the fine robot sisters are dating humans! I didn't ask for a completely reasonable excuse! I asked you to get busy! Do a flip! I could if you hadn't turned on the light and shut off my stereo.
     </div>
 
@@ -83,23 +73,23 @@
     <!-- FLAT -->
     <ul class="nav-list nav-flat" role="tablist">
       <li class="active" role="presentation">
-        <a href="#" role="tab">Home</a>
+        <a href="#home3" role="tab" aria-controls="#home3" aria-expanded="true">Home</a>
       </li>
       <li role="presentation">
-        <a href="#" role="tab">Profile</a>
+        <a href="#profile3" role="tab" aria-controls="#profile3" aria-expanded="false">Profile</a>
       </li>
       <li role="presentation">
-        <a href="#" role="tab">Activity</a>
+        <a href="#activity3" role="tab" aria-controls="#activity3" aria-expanded="false">Activity</a>
       </li>
     </ul>
 
-    <div class="tab-panel active" role="tabpanel">
+    <div class="tab-panel active" id="home3" role="tabpanel">
       You mean while I'm sleeping in it? Um, is this the boring, peaceful kind of taking to the streets? No! I want to live! There are still too many things I don't own! Or a guy who burns down a bar for the insurance money!
     </div>
-    <div class="tab-panel" role="tabpanel">
+    <div class="tab-panel" id="profile3" role="tabpanel" style="display: none;">
       Shinier than yours, meatbag. And from now on you're all named Bender Jr. Incidentally, you have a dime up your nose. I decline the title of Iron Cook and accept the lesser title of Zinc Saucier, which I just made up. Uhh… also, comes with double prize money. Humans dating robots is sick.
     </div>
-    <div class="tab-panel" role="tabpanel">
+    <div class="tab-panel" id="activity3" role="tabpanel" style="display: none;">
       You people wonder why I'm still single? It's 'cause all the fine robot sisters are dating humans! I didn't ask for a completely reasonable excuse! I asked you to get busy! Do a flip! I could if you hadn't turned on the light and shut off my stereo.
     </div>
 
