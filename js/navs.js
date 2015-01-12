@@ -9,33 +9,6 @@
     var $this = this.element;
     var $tabs = $this.closest('ul');
 
-    /* @preserve-debug-only */
-    if ($tabs.attr('role') !== 'tablist') {
-      console.info('List missing role="tablist" attribute.', $tabs[0]);
-    }
-    $tabs.find('li').each(function() {
-      if ($(this).attr('role') === undefined) {
-        console.info('List item missing role="presentation" attribute', this);
-      }
-    });
-    $tabs.find('a').each(function() {
-      if ($(this).attr('aria-expanded') === undefined) {
-        console.info('Anchor missing aria-expanded attribute.', this);
-      }
-      if ($(this).attr('role') === undefined) {
-        console.info('Anchor missing role attribute.', this);
-      }
-      if ($(this).attr('aria-controls') === undefined) {
-        console.info('Anchor missing aria-controls attribute.', this);
-      } else if ($(this).attr('aria-controls') !== $(this).attr('href')) {
-        console.info('Href does not match aria-controls attribute.', this);
-      }
-      if (!$($(this).attr('href')).length) {
-        console.info('Tab content does not exist for href ' + $(this).attr('href'), this);
-      }
-    });
-    /* @preserve-end-debug-only */
-
     // Don't do anything for active tab
     if ($this.closest('li').hasClass('active')) { return; }
 

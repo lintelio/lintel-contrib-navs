@@ -9,7 +9,6 @@
     var $this = this.element;
     var $tabs = $this.closest('ul');
 
-
     // Don't do anything for active tab
     if ($this.closest('li').hasClass('active')) { return; }
 

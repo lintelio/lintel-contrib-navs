@@ -220,25 +220,6 @@ module.exports = function (grunt) {
       }
     },
 
-    // Strip debug code
-    strip_code: {
-      options: {
-        start_comment: '\@preserve-debug-only',
-        end_comment: '\@preserve-end-debug-only'
-      },
-      js: {
-        src: ['dist/**/*.js', '!dist/**/*.debug.js']
-      }
-    },
-
-    // Concat files
-    concat: {
-      js: {
-        src: ['js/**/*.js'],
-        dest: 'dist/navs.concat.js'
-      }
-    },
-
     // Minify js
     uglify: {
       options: {
@@ -257,7 +238,7 @@ module.exports = function (grunt) {
       },
       concat: {
         files: {
-          'dist/navs.min.js': 'dist/navs.concat.js'
+          'dist/navs.min.js': ['js/**/*.js']
         }
       }
     },
@@ -271,11 +252,6 @@ module.exports = function (grunt) {
           src: ['**/*.js'],
           dest: 'dist/'
         }]
-      },
-      debug: {
-        files: {
-          'dist/navs.debug.js': 'dist/navs.concat.js'
-        }
       }
     },
 
@@ -329,7 +305,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('sass-compile', ['sass:dist', 'autoprefixer:dist', 'cssmin:dist', 'csslint', 'notify:sass']);
 
-  grunt.registerTask('js-compile', ['concat:js', 'copy:js', 'copy:debug', 'strip_code:js', 'jshint', 'uglify:concat', 'notify:js']);
+  grunt.registerTask('js-compile', ['copy:js', 'jshint', 'uglify:concat', 'notify:js']);
 
   grunt.registerTask('test', ['clean:dist', 'sass-compile', 'js-compile', 'connect', 'clean:tests', 'webshot', 'nodeunit']);
 
