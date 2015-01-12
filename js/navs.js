@@ -74,9 +74,7 @@
 
   // Define jQuery plugin
   function Plugin(method, options) {
-    var settings = $.extend({
-
-    }, Plugin.defaults, options);
+    var settings = $.extend({}, Plugin.defaults, options);
 
     return this.each(function() {
       var $this = $(this);
@@ -88,7 +86,7 @@
       }
       if (typeof method === 'string') { data[method](); }
 
-      settings.callback.call(this);
+      settings.callback.call($this);
     });
   }
 
