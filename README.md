@@ -119,6 +119,44 @@ Same as tabs except `$nav-pills-*` and `$nav-flat-*`.
 <ul class="nav-list nav-flat" role="tablist">...</div>
 ```
 
+#### Tabs with Content
+Keep the following in mind:
+
+- `<ul>`s should have `role="tablist"`
+- `<li>`s should have `role="presentation"` 
+  - class of `.active` if active
+- `<a>`s should have `role="tab"`
+  - `href` should point to the id of the tab it is for
+  - `aria-controls` should point to the id of the tab it is for (same value as `href`)
+  - `aria-expanded` should be `true` for the active tab, `false` for the others
+- `.tab-panel` should have an id of `role="tabpanel"`
+  - class of `.active` if active
+  - style of `display: none;` if inactive
+
+```html
+<ul class="nav-list nav-tabs" role="tablist">
+  <li class="active" role="presentation">
+    <a href="#home" role="tab" aria-controls="#home" aria-expanded="true">Home</a>
+  </li>
+  <li role="presentation">
+    <a href="#profile" role="tab" aria-controls="#profile" aria-expanded="false">Profile</a>
+  </li>
+  <li role="presentation">
+    <a href="#activity" role="tab" aria-controls="#activity" aria-expanded="false">Activity</a>
+  </li>
+</ul>
+
+<div class="tab-panel active" id="home" role="tabpanel">
+  ...
+</div>
+<div class="tab-panel" id="profile" role="tabpanel" style="display: none;">
+  ...
+</div>
+<div class="tab-panel" id="activity" role="tabpanel" style="display: none;">
+  ...
+</div>
+```
+
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
