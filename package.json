@@ -1,6 +1,6 @@
 {
   "name": "lintel-contrib-navs",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Navigation tools for lintel.",
   "homepage": "https://github.com/lintelio/lintel-contrib-navs",
   "repository": "https://github.com/lintelio/lintel-contrib-navs.git",
@@ -20,7 +20,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "jquery": ">= 1.9.1",
+    "jquery": ">= 1.9.2",
     "lintel": "~0.1.6"
   },
   "devDependencies": {
