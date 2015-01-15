@@ -88,13 +88,13 @@ Same as tabs except `$nav-pills-*` and `$nav-flat-*`.
 ```html
 <ul class="nav-list nav-tabs" role="tablist">
   <li class="active" role="presentation">
-    <a href="#" role="tab">Home</a>
+    <a href="#" data-toggle="tab" role="tab">Home</a>
   </li>
   <li role="presentation">
-    <a href="#" role="tab">Profile</a>
+    <a href="#" data-toggle="tab" role="tab">Profile</a>
   </li>
   <li role="presentation">
-    <a href="#" role="tab">Activity</a>
+    <a href="#" data-toggle="tab" role="tab">Activity</a>
   </li>
 </ul>
 ```
@@ -125,8 +125,9 @@ Keep the following in mind:
 - `<ul>`s should have `role="tablist"`
 - `<li>`s should have `role="presentation"` 
   - class of `.active` if active
-- `<a>`s should have `role="tab"`
+- `<a>`s should have `data-toggle="tab"` or be activated manually through js
   - `href` should point to the id of the tab it is for
+  - `role="tab"` should be defined
   - `aria-controls` should point to the id of the tab it is for (same value as `href`)
   - `aria-expanded` should be `true` for the active tab, `false` for the others
 - `.tab-panel` should have an id of `role="tabpanel"`
@@ -155,6 +156,10 @@ Keep the following in mind:
 <div class="tab-panel" id="activity" role="tabpanel" style="display: none;">
   ...
 </div>
+```
+
+```js
+$('#home').tab('show');
 ```
 
 

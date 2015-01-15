@@ -2,55 +2,53 @@
   'use strict';
 
   var Nav = function(element) {
-    this.element = $(element);
+    this.$tab = $(element);
+    this.$list = this.$tab.closest('ul');
   };
 
   Nav.prototype.show = function() {
-    var $this = this.element;
-    var $tabs = $this.closest('ul');
-
     // Don't do anything for active tab
-    if ($this.closest('li').hasClass('active')) { return; }
+    if (this.$tab.closest('li').hasClass('active')) { return; }
 
     // Don't do anything for invalid tabs
-    if (!$($this.attr('href')).length) { return; }
+    if (!$(this.$tab.attr('href')).length) { return; }
 
     // Current tab
-    var $current = $tabs.find('.active:last a');
+    var $activeTab = this.$list.find('.active:last a');
 
-    // Hide events
+    // Hide active tab event
     var hideEvent = $.Event('hide.lt.nav', {
-      relatedTarget: $this[0]
+      relatedTarget: this.$tab[0]
     });
+    $activeTab.trigger(hideEvent);
 
-    var hiddenEvent = $.Event('hidden.lt.nav', {
-      relatedTarget: $this[0]
-    });
-
-    // Show events
+    // Show new tab event
     var showEvent = $.Event('show.lt.nav', {
-      relatedTarget: $current[0]
+      relatedTarget: $activeTab[0]
     });
-
-    var shownEvent = $.Event('shown.lt.nav', {
-      relatedTarget: $current[0]
-    });
-
-    // Trigger pre-action events
-    $current.trigger(hideEvent);
-    $this.trigger(showEvent);
+    this.$tab.trigger(showEvent);
 
     // Allow events to be prevented
     if (showEvent.isDefaultPrevented() || hideEvent.isDefaultPrevented()) { return; }
 
+    // Hidden active tab event
+    var hiddenEvent = $.Event('hidden.lt.nav', {
+      relatedTarget: this.$tab[0]
+    });
+
+    // Shown new tab event
+    var shownEvent = $.Event('shown.lt.nav', {
+      relatedTarget: $activeTab[0]
+    });
+
     // Active new tab and trigger confirmation events
-    this.activate($this, $current, $tabs, function() {
-      $current.trigger(hiddenEvent);
-      $this.trigger(shownEvent);
+    this.activate($activeTab, this.$tab, this.$list, function() {
+      $activeTab.trigger(hiddenEvent);
+      this.$tab.trigger(shownEvent);
     });
   };
 
-  Nav.prototype.activate = function(newTab, current, container, callback) {
+  Nav.prototype.activate = function(current, newTab, container, callback) {
     // Remove active from current tab
     current
       .attr('aria-expanded', false)
@@ -97,7 +95,7 @@
   $.fn.nav = Plugin;
 
   // Events
-  $(document).on('click.lt.nav', '.nav-list a', function(e) {
+  $(document).on('click.lt.nav', '[data-toggle="tab"]', function(e) {
     e.preventDefault();
     Plugin.call($(this), 'show');
   });
