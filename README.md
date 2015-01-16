@@ -82,6 +82,14 @@ Use `$nav-tabs-hover-bg`, `$nav-tabs-hover-border`, and `$nav-tabs-hover-text` t
 Same as tabs except `$nav-pills-*` and `$nav-flat-*`.
 
 
+## JavaScript
+To invoke a tab from JavaScript:
+
+```js
+$('#myTab').tab('show');
+```
+
+
 ## Examples
 
 #### Tabs
@@ -156,10 +164,6 @@ Keep the following in mind:
 <div class="tab-panel" id="activity" role="tabpanel" style="display: none;">
   ...
 </div>
-```
-
-```js
-$('#home').tab('show');
 ```
 
 

@@ -1,12 +1,12 @@
 (function($) {
   'use strict';
 
-  var Nav = function(element) {
+  var Tab = function(element) {
     this.$tab = $(element);
     this.$list = this.$tab.closest('ul');
   };
 
-  Nav.prototype.show = function() {
+  Tab.prototype.show = function() {
     // Don't do anything for active tab
     if (this.$tab.closest('li').hasClass('active')) { return; }
 
@@ -17,13 +17,13 @@
     var $activeTab = this.$list.find('.active:last a');
 
     // Hide active tab event
-    var hideEvent = $.Event('hide.lt.nav', {
+    var hideEvent = $.Event('hide.lt.tab', {
       relatedTarget: this.$tab[0]
     });
     $activeTab.trigger(hideEvent);
 
     // Show new tab event
-    var showEvent = $.Event('show.lt.nav', {
+    var showEvent = $.Event('show.lt.tab', {
       relatedTarget: $activeTab[0]
     });
     this.$tab.trigger(showEvent);
@@ -32,12 +32,12 @@
     if (showEvent.isDefaultPrevented() || hideEvent.isDefaultPrevented()) { return; }
 
     // Hidden active tab event
-    var hiddenEvent = $.Event('hidden.lt.nav', {
+    var hiddenEvent = $.Event('hidden.lt.tab', {
       relatedTarget: this.$tab[0]
     });
 
     // Shown new tab event
-    var shownEvent = $.Event('shown.lt.nav', {
+    var shownEvent = $.Event('shown.lt.tab', {
       relatedTarget: $activeTab[0]
     });
 
@@ -48,7 +48,7 @@
     });
   };
 
-  Nav.prototype.activate = function(current, newTab, container, callback) {
+  Tab.prototype.activate = function(current, newTab, container, callback) {
     // Remove active from current tab
     current
       .attr('aria-expanded', false)
@@ -77,10 +77,10 @@
     return this.each(function() {
       var $this = $(this);
 
-      var data = $this.data('lt.nav');
+      var data = $this.data('lt.tab');
       if (!data) {
-        data = new Nav(this);
-        $this.data('lt.nav', data);
+        data = new Tab(this);
+        $this.data('lt.tab', data);
       }
       if (typeof method === 'string') { data[method](); }
 
@@ -92,10 +92,10 @@
     callback: function() {}
   };
 
-  $.fn.nav = Plugin;
+  $.fn.tab = Plugin;
 
   // Events
-  $(document).on('click.lt.nav', '[data-toggle="tab"]', function(e) {
+  $(document).on('click.lt.tab', '[data-toggle="tab"]', function(e) {
     e.preventDefault();
     Plugin.call($(this), 'show');
   });
