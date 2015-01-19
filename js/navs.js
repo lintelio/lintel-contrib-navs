@@ -1,9 +1,10 @@
 (function($) {
   'use strict';
 
-  var Tab = function(element) {
+  var Tab = function(element, options) {
     this.$tab = $(element);
     this.$list = this.$tab.closest('ul');
+    this.options = options || {};
   };
 
   Tab.prototype.show = function() {
@@ -31,6 +32,9 @@
     // Allow events to be prevented
     if (showEvent.isDefaultPrevented() || hideEvent.isDefaultPrevented()) { return; }
 
+    this.options.onHide.call(this, this.$tab);
+    this.options.onShow.call(this, this.$tab);
+
     // Hidden active tab event
     var hiddenEvent = $.Event('hidden.lt.tab', {
       relatedTarget: this.$tab[0]
@@ -48,7 +52,7 @@
     });
   };
 
-  Tab.prototype.activate = function(current, newTab, container, callback) {
+  Tab.prototype.activate = function(current, newTab) {
     // Remove active from current tab
     current
       .attr('aria-expanded', false)
@@ -66,30 +70,32 @@
 
     // Show new content
     $(newTab.attr('href')).show();
-
-    if (callback) { callback(); }
   };
 
   // Define jQuery plugin
-  function Plugin(method, options) {
-    var settings = $.extend({}, Plugin.defaults, options);
+  function Plugin(method) {
 
     return this.each(function() {
-      var $this = $(this);
+      var $tab = $(this);
+      var settings = $.extend({}, Plugin.defaults, $tab.data(), typeof method === 'object' && method);
 
-      var data = $this.data('lt.tab');
+      var data = $tab.data('lt.tab');
       if (!data) {
-        data = new Tab(this);
-        $this.data('lt.tab', data);
+        data = new Tab(this, settings);
+        $tab.data('lt.tab', data);
       }
-      if (typeof method === 'string') { data[method](); }
-
-      settings.callback.call($this);
+      if (typeof method === 'string') {
+        data[method]();
+      } else if (settings.show) {
+        data.show();
+      }
     });
   }
 
   Plugin.defaults = {
-    callback: function() {}
+    onShow: function() {},
+    onHide: function() {},
+    show: true
   };
 
   $.fn.tab = Plugin;

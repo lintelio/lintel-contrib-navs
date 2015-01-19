@@ -83,8 +83,67 @@ Same as tabs except `$nav-pills-*` and `$nav-flat-*`.
 
 
 ## JavaScript
-To invoke a tab from JavaScript:
 
+### Options
+
+Name      | Type                           | Default             | Description
+--------- | ------------------------------ | ------------------- | -----------
+onShow    | function                       |                     | Callback function to execute every time tab is shown.
+onHide    | function                       |                     | Callback function to execute every time tab is hidden.
+show      | boolean                        | true                | Show tab when invoking `.tab()`
+
+
+### Events
+
+Event                | Description
+-------------------- | ------------------------------
+show.lt.tab          | Fires immediately before tab is shown. Can prevent tab from showing here.
+shown.lt.tab         | Fires immediately after tab is shown.
+hide.lt.tab          | Fires immediately before tab is hidden. Can prevent tab from hiding here.
+hidden.lt.tab        | Fires immediately after tab is hidden.
+
+
+### Data-attr
+Add `data-toggle="tab"` and `data-target="#selector"` to a tab.
+You can add additional options as data-attributes.
+
+```html
+<ul class="nav-list nav-tabs" role="tablist">
+  <li class="active" role="presentation">
+    <a href="#home" data-toggle="tab" role="tab" aria-controls="#home" aria-expanded="true">Home</a>
+  </li>
+  <li role="presentation">
+    <a href="#profile" data-toggle="tab" role="tab" aria-controls="#profile" aria-expanded="false">Profile</a>
+  </li>
+  <li role="presentation">
+    <a href="#activity" data-toggle="tab" role="tab" aria-controls="#activity" aria-expanded="false">Activity</a>
+  </li>
+</ul>
+
+<div class="tab-panel active" id="home" role="tabpanel">...</div>
+<div class="tab-panel" id="profile" role="tabpanel" style="display: none;">...</div>
+<div class="tab-panel" id="activity" role="tabpanel" style="display: none;">...</div>
+```
+
+
+### jQuery
+Call the jQuery plugin on the tab, passing in any options.
+
+
+```js
+var options = {
+  onShow: function(tab) {
+    console.log('onShow', this, tab);
+  },
+  onHide: function(tab) {
+    console.log('onHide', this, tab);
+  }
+};
+
+$('#myTabButton').tab(options);
+```
+
+Alternatively, you can use the default options:
 ```js
 $('#myTab').tab('show');
 ```
